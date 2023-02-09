@@ -1,20 +1,21 @@
 package org.example;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
-
-@ToString
+//@Component("person")
 public class Person {
     private String name;
     private int age;
+
     private Pet pet;
 
-    public Person(Pet pet) {
-        System.out.println("Person constructor");
-        this.pet = pet;
-    }
+
+//    public Person(@Qualifier("dog") Pet pet) {
+//        System.out.println("Person constructor");
+//        this.pet = pet;
+//    }
 
     public String getName() {
         return name;
@@ -37,13 +38,23 @@ public class Person {
     }
 
     //pet -> setPet
+
+
     public void setPet(Pet pet) {
         System.out.println("Set Pet");
         this.pet = pet;
     }
 
     public void say() {
-        System.out.println("SAY");
+        System.out.println("PERSON SAY");
         pet.say();
+    }
+
+    public void init() {
+        System.out.println("INIT");
+    }
+
+    public void destroy() {
+        System.out.println("DESTROY");
     }
 }

@@ -7,11 +7,15 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+        <bean id="cat"
+              class="org.example.Cat"
+              init-method="init"
+              destroy-method="destroy"
+              scope="singleton"/>
 
-    <bean id="myPet" class="org.example.Cat"/>
+    <!--        <bean id="person" class="org.example.Person">-->
+    <!--            <property name="pet" ref="myPet"/>-->
+    <!--        </bean>-->
 
-    <bean id="myPerson" class="org.example.Person">
-        <property name="pet" ref="myPet"/>
-
-    </bean>
+<!--    <context:component-scan base-package="org.example"/>-->
 </beans>
